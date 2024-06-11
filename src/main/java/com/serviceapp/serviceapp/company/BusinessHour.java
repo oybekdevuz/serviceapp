@@ -1,7 +1,7 @@
-// BusinessHour.java
 package com.serviceapp.serviceapp.company;
 
 import jakarta.persistence.*;
+import java.time.DayOfWeek;
 
 @Entity
 @Table(name = "business_hour")
@@ -21,11 +21,9 @@ public class BusinessHour {
     @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 
-    // Default constructor
     public BusinessHour() {
     }
 
-    // Parameterized constructor
     public BusinessHour(DayOfWeek dayOfWeek, String openTime, String closeTime, Boolean isClosed, Company company) {
         this.dayOfWeek = dayOfWeek;
         this.openTime = openTime;

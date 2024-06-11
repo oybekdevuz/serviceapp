@@ -1,24 +1,11 @@
-package com.serviceapp.serviceapp.company;
+package com.serviceapp.serviceapp.company.Dto;
 
-import jakarta.persistence.*;
-import java.util.List;
-
-@Entity
-@Table(name = "company")
-public class Company {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "company_sequence")
-    @SequenceGenerator(name = "company_sequence", sequenceName = "company_sequence", allocationSize = 1)
+public class RegisterStep2 {
     private Long id;
-
-    private String email;
-    private String password;
-    private String logoUrl;
     private String companyName;
     private String businessEIN;
     private String companyPhoneNumber;
     private Integer yearFounded;
-    private Boolean verify;
     private String officeName;
     private String servingArea;
     private String addressLine1;
@@ -32,66 +19,12 @@ public class Company {
     private String username;
     private String ownerDateOfBirth;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BusinessHour> businessHours;
-
-    public Company() {
-    }
-
-    public Company(String email, String password) {
-        this.email = email;
-        this.password = password;
-        this.logoUrl = null;
-        this.companyName = null;
-        this.businessEIN = null;
-        this.companyPhoneNumber = null;
-        this.yearFounded = null;
-        this.verify = false;
-        this.officeName = null;
-        this.servingArea = null;
-        this.addressLine1 = null;
-        this.addressLine2 = null;
-        this.city = null;
-        this.state = null;
-        this.zipCode = null;
-        this.ownerFirstName = null;
-        this.ownerLastName = null;
-        this.ownerPhoneNumber = null;
-        this.username = null;
-        this.ownerDateOfBirth = null;
-    }
-
-    // Getters and setters
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getLogoUrl() {
-        return logoUrl;
-    }
-
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
     }
 
     public String getCompanyName() {
@@ -124,14 +57,6 @@ public class Company {
 
     public void setYearFounded(Integer yearFounded) {
         this.yearFounded = yearFounded;
-    }
-
-    public Boolean getVerify() {
-        return verify;
-    }
-
-    public void setVerify(Boolean verify) {
-        this.verify = verify;
     }
 
     public String getOfficeName() {
@@ -228,13 +153,5 @@ public class Company {
 
     public void setOwnerDateOfBirth(String ownerDateOfBirth) {
         this.ownerDateOfBirth = ownerDateOfBirth;
-    }
-
-    public List<BusinessHour> getBusinessHours() {
-        return businessHours;
-    }
-
-    public void setBusinessHours(List<BusinessHour> businessHours) {
-        this.businessHours = businessHours;
     }
 }
