@@ -2,9 +2,10 @@ package com.serviceapp.serviceapp.company.Dto;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.serviceapp.serviceapp.company.DayOfWeek;
+
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import java.time.DayOfWeek;
 
 public class BusinessHourDto {
     private Long companyId;

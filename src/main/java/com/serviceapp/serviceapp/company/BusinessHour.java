@@ -1,7 +1,8 @@
 package com.serviceapp.serviceapp.company;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
-import java.time.DayOfWeek;
 
 @Entity
 @Table(name = "business_hour")
@@ -18,7 +19,8 @@ public class BusinessHour {
     private Boolean isClosed;
 
     @ManyToOne
-    @JoinColumn(name = "company_id", nullable = false)
+    @JoinColumn(name = "company_id")
+    @JsonIgnore
     private Company company;
 
     public BusinessHour() {
@@ -32,7 +34,7 @@ public class BusinessHour {
         this.company = company;
     }
 
-    // Getters and setters
+
     public Long getId() {
         return id;
     }

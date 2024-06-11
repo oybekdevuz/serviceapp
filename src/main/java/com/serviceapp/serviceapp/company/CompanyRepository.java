@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface CompanyRepository extends JpaRepository<Company,  Long> {
   Optional<Company> findByEmail(String email);
   Company findByEmailAndVerifyFalse(String email);
+  Company findByEmailAndVerifyTrue(String email);
   Company findByIdAndVerifyTrue(Long id);
 }

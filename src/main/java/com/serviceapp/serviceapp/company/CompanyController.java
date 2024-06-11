@@ -40,9 +40,14 @@ public class CompanyController {
     public Object registerStep2(@RequestBody Map<String, String> request) {
       String email = request.get("email");
       String otp = request.get("otp");
-      System.out.println(email);
-      System.out.println(otp);
       return companyService.verify(email, otp);
+    }
+
+    @PostMapping(path = "auth/signin")
+    public Object singin(@RequestBody Map<String, String> request) {
+      String email = request.get("email");
+      String password = request.get("password");
+      return companyService.signInCompany(email, password);
     }
 
     @PostMapping(path = "auth/signup-2", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
